@@ -1,11 +1,14 @@
 import { OrbitControls } from "@react-three/drei";
-import { Blob } from "./godrays/Mesh";
+import { MeshRay } from "./godrays/Mesh";
+import { MeshReflection } from "./reflection/Mesh";
+
 
 export const Experience = () => {
   return (
     <>
       <OrbitControls />
-      <Blob />
+      <MeshRay />
+      <MeshReflection />
     </>
   );
 };

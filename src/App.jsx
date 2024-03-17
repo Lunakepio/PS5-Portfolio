@@ -1,12 +1,18 @@
 import { Canvas } from "@react-three/fiber";
 import { Experience } from "./components/Experience";
+import { Bloom, EffectComposer } from "@react-three/postprocessing";
 
 function App() {
   return (
-    <Canvas shadows camera={{ position: [0, 0, 20], fov: 30 }}>
-      <color attach="background" args={["#2b2b2b"]} />
-      <Experience />
-    </Canvas>
+    <div className="canvas-container">
+      <Canvas shadows camera={{ position: [0, 0, -100], fov: 30 }}>
+        <color attach="background" args={["#2b2b2b"]} />
+        <Experience />
+        <EffectComposer>
+          <Bloom luminanceThreshold={0} luminanceSmoothing={0.9} mipmapBlur/>
+        </EffectComposer>
+      </Canvas>
+    </div>
   );
 }
 
