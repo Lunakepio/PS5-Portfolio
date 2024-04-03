@@ -10,9 +10,8 @@ export const BokehParticles = () => {
           key={i}
           position={[
             (i - 500) / 8,
-            (Math.sin(i * 0.007) * 10) + ((Math.random() - 0.5) * 10),
-            (Math.cos(i * 0.007) * 10) + ((Math.random() - 0.5) * 10),
-
+            ((Math.sin(i * 0.007) * 10) + ((Math.random() - 0.5) * 10)) - 5,
+            (Math.cos(i * 0.007) * 10) + ((Math.random() - 0.5) * 50),
           ]}
         />
       ))}

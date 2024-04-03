@@ -8,11 +8,9 @@ import { BokehParticles } from "./BokehParticles";
 export const Experience = () => {
   return (
     <>
-      <OrbitControls />
       <MeshRay />
       <MeshReflection />
       <BokehParticles />
-      <OrbitControls />
     </>
   );
 };
