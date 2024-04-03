@@ -29,6 +29,7 @@ body {
   height: 100vh;
   color : white;
 
+  display : none;
   p{
     margin-top: 250px;
     text-align: center;
@@ -48,7 +49,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    animation: heartbeat 4s infinite ease-in;
     z-index: 2;
     img{
       width: 50px;
@@ -69,7 +69,6 @@ body {
   background-color: rgba(255, 255, 255, 1);
   border-radius: 50%;
   filter: blur(20px);
-  animation: scaleAndFade 4s infinite ease-in-out;
 }
 
 .circle1{
@@ -78,7 +77,6 @@ body {
   border-radius: 50%;
   border: 1px solid rgba(255, 255, 255, 1);
   filter:drop-shadow(0 0 20px rgba(255, 255, 255, 1));
-  animation: scaleAndFade 4s infinite ease-in-out;
 }
 
 .circle2{
@@ -89,8 +87,8 @@ body {
   border-style: solid;
   border-color: rgba(255, 255, 255, 1);
   filter:drop-shadow(0 0 20px rgba(255, 255, 255, 1));
-  animation: scaleAndFadeBorder 4s infinite ease-in-out;
 }
+
 .mainButton{
   display: flex;
   justify-content: center;
