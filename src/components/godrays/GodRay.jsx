@@ -1,9 +1,15 @@
-import React, { useMemo, useRef } from 'react'
-import { shaderMaterial } from '@react-three/drei'
-import { extend, useFrame } from '@react-three/fiber'
-import { Color, DoubleSide, AdditiveBlending, FrontSide } from 'three'
+import React, { useMemo, useRef } from "react";
+import { shaderMaterial } from "@react-three/drei";
+import { extend, useFrame } from "@react-three/fiber";
+import { Color, DoubleSide, AdditiveBlending, FrontSide } from "three";
 
-export default function GodRay({ falloff = 3, glowInternalRadius = 1.0, glowColor = 'orange', glowSharpness = 1.0 , isBoosting,}) {
+export default function GodRay({
+  falloff = 3,
+  glowInternalRadius = 1.0,
+  glowColor = "orange",
+  glowSharpness = 1.0,
+  isBoosting,
+}) {
   const GodRay = useMemo(() => {
     return shaderMaterial(
       {
@@ -13,7 +19,7 @@ export default function GodRay({ falloff = 3, glowInternalRadius = 1.0, glowColo
         glowSharpness: glowSharpness,
         time: 0,
         isBoosting: isBoosting,
-      },/*GLSL*/
+      } /*GLSL*/,
       `
       varying vec3 vNormal;
       varying vec3 vPosition;
@@ -70,7 +76,7 @@ float pnoise(vec3 p) {
           vPosition = modelPosition.xyz;
           vNormal = modelNormal.xyz;
       }`,
-/*GLSL*/`
+      /*GLSL*/ `
       varying vec3 vNormal;
       varying vec3 vPosition;
       varying vec3 vPattern;
@@ -130,17 +136,17 @@ float pnoise(vec3 p) {
         vec3 color = smoothstep(1., noise, vUv.y) * lightColor;
         gl_FragColor = vec4(color, color * falloff * 0.4);
         
-      }`
-    )
-  }, [falloff, glowInternalRadius, glowColor, glowSharpness, isBoosting])
+      }`,
+    );
+  }, [falloff, glowInternalRadius, glowColor, glowSharpness, isBoosting]);
 
-  extend({ GodRay })
+  extend({ GodRay });
 
   useFrame((state, delta) => {
-    ref.current.time += delta
-  })
+    ref.current.time += delta;
+  });
 
-  const ref = useRef()
+  const ref = useRef();
 
   return (
     <godRay
@@ -151,5 +157,6 @@ float pnoise(vec3 p) {
       depthTest={false}
       ref={ref}
     />
-  )
+  );
 }
+

@@ -11,6 +11,7 @@ export const Content = () => {
         <div className="absolute glow"></div>
         <div className="absolute circle1"></div>
         <div className="absolute circle2"></div>
+        <div className="absolute particles"></div>
       </div>
     </main>
   );
