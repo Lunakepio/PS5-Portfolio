@@ -197,7 +197,7 @@ body {
     .userImageContainer {
       border: 3px solid #4c4b54;
       padding: 2px;
-      transition: padding 0.3s ease-in-out;
+      /* transition: all 0.3s ease-in-out; */
       position: relative;
       overflow: hidden;
 
