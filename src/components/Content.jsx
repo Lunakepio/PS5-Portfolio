@@ -1,17 +1,21 @@
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useRef, useState } from "react";
+import { useNavigate } from 'react-router-dom'
 import { Tilt } from "react-tilt";
 import { useAppStore } from "../store";
 
 export const Content = () => {
   const [isButtonPress, setIsButtonPress] = useState(false);
-
-  const { updateOpacity } = useAppStore();
+  const [isLeaved, setIsLeaved] = useState(false)
+  
   const buttonContentRef = useRef();
   const user = useRef();
+  
+  const { updateOpacity } = useAppStore();
+  const navigate = useNavigate()
 
-  function pressButton() {
+  const pressButton = () => {
     buttonContentRef.current.classList.add("buttonClicked");
 
     setTimeout(() => {
@@ -19,8 +23,8 @@ export const Content = () => {
     }, 500);
   }
 
-  function redirectionProjets() {
-    document.querySelector(".userChoice").classList.add("leavePage");
+  const redirectionProjects = () => {
+    setIsLeaved(true)
 
     setTimeout(() => {
       updateOpacity(true);
@@ -28,7 +32,8 @@ export const Content = () => {
 
 
     setTimeout(() => {
-      window.location.href = "/projets";
+      navigate('/projects')
+
     }, 1800);
   }
 
@@ -63,7 +68,7 @@ export const Content = () => {
 
       {isButtonPress && (
         <section
-          className="userChoice"
+          className={`userChoice ${isLeaved ? 'leavePage' : ''}`}
           onLoad={() =>
             setTimeout(() => {
               user.current.classList.add("user-active");
@@ -79,7 +84,7 @@ export const Content = () => {
               <FontAwesomeIcon icon={faUser} />
             </span>
             <Tilt options={defaultOptions}>
-              <div onClick={redirectionProjets} className="userImageContainer">
+              <div onClick={redirectionProjects} className="userImageContainer">
                 <img src="./user-image.webp" />
               </div>
             </Tilt>
