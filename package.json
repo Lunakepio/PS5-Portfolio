@@ -22,6 +22,7 @@
     "lamina": "^1.1.23",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^6.22.3",
     "react-tilt": "^1.0.2",
     "three": "^0.162.0",
     "zustand": "^4.5.2"

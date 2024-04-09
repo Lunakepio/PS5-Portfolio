@@ -1,8 +1,9 @@
-import React, { useRef, useMemo, useState, useEffect } from "react";
+import { useRef, useState, useEffect } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { useFrame, useLoader } from "@react-three/fiber";
 import { TextureLoader } from "three";
+import { useAppStore } from "../store";
 
 export const BokehSinusoide = ({ position }) => {
   const bokehOne = useLoader(TextureLoader, "/bokeh-1.png");
@@ -13,6 +14,7 @@ export const BokehSinusoide = ({ position }) => {
 
   const bokehTextures = [bokehOne, bokehTwo, bokehThree, bokehFour, bokehFive];
   const colors = ["#eeaf6c", "#efc675", "#ae8456", "#ffdebd", "#ffefe0"];
+  const { opacityTrigger } = useAppStore();
 
   const [property, setProperty] = useState({
     directionX: Math.random() - 0.5,
@@ -77,6 +79,11 @@ export const BokehSinusoide = ({ position }) => {
   }, []);
 
   useFrame((state, delta) => {
+    if (opacityTrigger && mesh.current.scale.x > 0) {
+      mesh.current.scale.x -= 0.1;
+      mesh.current.scale.y -= 0.1;
+      mesh.current.scale.z -= 0.1;
+    }
     mesh.current.position.x += property.directionX * property.speed * delta;
     mesh.current.position.y += property.directionY * property.speed * delta;
     mesh.current.position.z += property.directionZ * property.speed * delta;
