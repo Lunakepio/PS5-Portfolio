@@ -11,6 +11,7 @@ html {
 
 body {
   margin: 0;
+  background-color: #000011;
 }
 
 * {
@@ -97,7 +98,7 @@ body {
 }
 
 .buttonClicked {
-  animation: scaleDown 0.6s ease-in-out forwards;
+  animation: scaleDown 0.6s ease-in-out forwards !important;
 }
 
 .absolute {
@@ -263,7 +264,7 @@ body {
       opacity: 0;
       transition: all 0.3s;
       animation: unHide 1s ease-in-out forwards;
-      animation-delay: 2.5s;
+      animation-delay: 1s;
 
       svg {
         opacity: 0.7;
@@ -288,7 +289,7 @@ body {
     transition: all 0.3s;
     font-weight: lighter;
     animation: unHide 1s ease-in-out forwards;
-    animation-delay: 2.5s;
+    animation-delay: 1s;
   }
 }
 
@@ -320,6 +321,20 @@ nav {
   width: 200vw;
 }
 
+.projectPageContainer {
+  background-size: cover;
+  background-position: center;
+  opacity: 1;
+  transition: opacity .3s linear;
+}
+
+.leaveProjectPage {
+  .projectsContainer, .projectInformationContainer, .gradient {
+    animation: disappear .3s forwards !important;
+    animation-delay: .8s !important;
+  }
+}
+
 .projectsContentPage {
   width: 100vw;
   height: 100vh;
@@ -348,6 +363,7 @@ nav {
       height: 100vh;
       top: 0;
       left: 0;
+      transition: opacity 1s;
   }
 
   .projectsContainer {
@@ -414,6 +430,7 @@ nav {
       opacity: 0;
       transition: all 0.1s ease-in-out;
       animation: appear 0.3s ease-in-out forwards;
+      cursor: pointer;
 
       .imageContainer{
         width: 95%;
@@ -462,7 +479,7 @@ nav {
     }
   }
 
-  .logoDescriptionContainer {
+  .projectInformationContainer {
     position: absolute;
     bottom: 10%;
     z-index: 100;
@@ -491,21 +508,20 @@ nav {
         align-items: center;
         justify-content: center;
         border-radius: 50px;
+        transition: all .3s;
 
         &:hover {
-
           .glowProjectLink{
-            opacity: 1;
+            opacity: 1; 
           }
         }
 
       .glowProjectLink {
         position: absolute;
-        width: 200px;
-        height: 100px;
-        animation: borderMove 5s linear infinite;
-        offset-path: rect(0% auto 100% auto);
-        background: radial-gradient(rgba(255,255,255, 0.6), transparent);
+        width: 200%;
+        height: 800%;
+        background-image: conic-gradient(rgba(255,255,255, 0), rgba(255,255,255, 0.6));
+        animation: borderMoveButton 5s linear infinite;
         opacity: 0;
         pointer-events: none;
         border-radius: 50px;
@@ -524,18 +540,20 @@ nav {
         text-decoration: none;
         cursor: pointer;
         border: 0;
-        transition: all .3s;
   
         &:hover {
           background-color: white;
           color: black;
-          border: 2px solid #000011;
         }
+      }
+
+      .visitActive {
+        background: white;
+        columns: black;
       }
     }
   }
 }
-
 
 .aboutContentPage {
   width: 100vw;
@@ -696,5 +714,15 @@ nav {
 
   100% {
     offset-distance: 100%;
+  }
+}
+
+@keyframes borderMoveButton {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg); 
   }
 }

@@ -7,7 +7,10 @@ import { useAppStore } from "../store";
 
 export const Content = () => {
   const [isButtonPress, setIsButtonPress] = useState(false);
+  const [ containerClass, setContainerClass] = useState('content')
+  const [ userClass, setUserClass] = useState('')
   const [isLeaved, setIsLeaved] = useState(false)
+
   
   const buttonContentRef = useRef();
   const user = useRef();
@@ -16,7 +19,7 @@ export const Content = () => {
   const navigate = useNavigate()
 
   const pressButton = () => {
-    buttonContentRef.current.classList.add("buttonClicked");
+    setContainerClass('content buttonClicked')
 
     setTimeout(() => {
       setIsButtonPress(true);
@@ -39,7 +42,7 @@ export const Content = () => {
 
   const defaultOptions = {
     reverse: true, // reverse the tilt direction
-    max: 10, // max tilt rotation (degrees)
+    max: 15, // max tilt rotation (degrees)
     perspective: 1000, // Transform perspective, the lower the more extreme the tilt gets.
     scale: 1, // 2 = 200%, 1.5 = 150%, etc..
     speed: 3000, // Speed of the enter/exit transition
@@ -51,10 +54,10 @@ export const Content = () => {
 
   return (
     <main>
-      <section className="content" ref={buttonContentRef}>
+      <section className={containerClass} ref={buttonContentRef}>
         <p>Press the PS button on your controller.</p>
         <div className="mainButton">
-          <div className="button" onClick={pressButton}>
+          <div className='button' onClick={pressButton}>
             <div className="icon">
               <img src="./PS.png" alt="PlayStation button" />
             </div>
@@ -71,20 +74,20 @@ export const Content = () => {
           className={`userChoice ${isLeaved ? 'leavePage' : ''}`}
           onLoad={() =>
             setTimeout(() => {
-              user.current.classList.add("user-active");
-            }, 2500)
+              setUserClass("user-active");
+            }, 1300)
           }
         >
           <h1>Welcome Back to PlayStation</h1>
           <p>Who{"'"}s want you choose ?</p>
 
-          <article ref={user}>
+          <article className={userClass} ref={user}>
             <span className="userController">
               <span>1</span>
               <FontAwesomeIcon icon={faUser} />
             </span>
             <Tilt options={defaultOptions}>
-              <div onClick={redirectionProjects} className="userImageContainer">
+              <div onClick={userClass === 'user-active' ? redirectionProjects : null} className="userImageContainer">
                 <img src="./user-image.webp" />
               </div>
             </Tilt>
