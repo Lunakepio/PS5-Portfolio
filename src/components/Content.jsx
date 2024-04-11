@@ -1,44 +1,41 @@
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useRef, useState } from "react";
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
 import { Tilt } from "react-tilt";
 import { useAppStore } from "../store";
 
 export const Content = () => {
   const [isButtonPress, setIsButtonPress] = useState(false);
-  const [ containerClass, setContainerClass] = useState('content')
-  const [ userClass, setUserClass] = useState('')
-  const [isLeaved, setIsLeaved] = useState(false)
+  const [containerClass, setContainerClass] = useState("content");
+  const [userClass, setUserClass] = useState("");
+  const [isLeaved, setIsLeaved] = useState(false);
 
-  
   const buttonContentRef = useRef();
   const user = useRef();
-  
-  const { updateOpacity } = useAppStore();
-  const navigate = useNavigate()
+
+  const { setOpacity } = useAppStore();
+  const navigate = useNavigate();
 
   const pressButton = () => {
-    setContainerClass('content buttonClicked')
+    setContainerClass("content buttonClicked");
 
     setTimeout(() => {
       setIsButtonPress(true);
     }, 500);
-  }
+  };
 
   const redirectionProjects = () => {
-    setIsLeaved(true)
+    setIsLeaved(true);
 
     setTimeout(() => {
-      updateOpacity(true);
-    }, 500)
-
+      setOpacity(true);
+    }, 500);
 
     setTimeout(() => {
-      navigate('/projects')
-
+      navigate("/projects");
     }, 1800);
-  }
+  };
 
   const defaultOptions = {
     reverse: true, // reverse the tilt direction
@@ -57,7 +54,7 @@ export const Content = () => {
       <section className={containerClass} ref={buttonContentRef}>
         <p>Press the PS button on your controller.</p>
         <div className="mainButton">
-          <div className='button' onClick={pressButton}>
+          <div className="button" onClick={pressButton}>
             <div className="icon">
               <img src="./PS.png" alt="PlayStation button" />
             </div>
@@ -71,7 +68,7 @@ export const Content = () => {
 
       {isButtonPress && (
         <section
-          className={`userChoice ${isLeaved ? 'leavePage' : ''}`}
+          className={`userChoice ${isLeaved ? "leavePage" : ""}`}
           onLoad={() =>
             setTimeout(() => {
               setUserClass("user-active");
@@ -87,7 +84,12 @@ export const Content = () => {
               <FontAwesomeIcon icon={faUser} />
             </span>
             <Tilt options={defaultOptions}>
-              <div onClick={userClass === 'user-active' ? redirectionProjects : null} className="userImageContainer">
+              <div
+                onClick={
+                  userClass === "user-active" ? redirectionProjects : null
+                }
+                className="userImageContainer"
+              >
                 <img src="./user-image.webp" />
               </div>
             </Tilt>
