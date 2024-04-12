@@ -24,7 +24,7 @@ export const Projects = () => {
       cardImg: "/mario-kart-js.jpg",
       img: "/mario-kart-js-game.jpg",
       logo: "/logo-mario.png",
-      title: "Mario Kart JS",
+      title: "Mario Kart 3.js",
       descriptionFr:
         "Mario Kart JS est la reproduction du jeu Mario Kart fait par Nintendo sur navigateur web grâce à React Three JS",
       descriptionEn:
@@ -36,7 +36,7 @@ export const Projects = () => {
       cardImg: "/star_wars_card.png",
       img: "/starwars.jpg",
       logo: "/star_wars_logo.png",
-      title: "StarWars",
+      title: "STAR WARS : DEATH STAR TRENCH RUN",
       descriptionFr:
         "Dans une galaxie lointaine, j'ai recréé la scène de Star Wars où Luke Skywalker détruit l'Étoile de la Mort. J'ai utilisé Three.js pour la 3D, GSAP pour l'animation et l'API Web Audio pour les effets sonores. Projet Open Source sur Github.",
       descriptionEn:
@@ -48,7 +48,7 @@ export const Projects = () => {
       cardImg: "/card-flightSim.webp",
       img: "/background-filghtSim.webp",
       logo: "/star_wars_logo.png",
-      title: "FlightSim",
+      title: "3D Flight Simulator.js",
       descriptionFr:
         "Vivez le frisson de voler sans jamais quitter votre siège avec ce simulateur de vol 3D immersif, optimisé par Three.js. Conçu en 3D et utilisant l'API innovante de tuiles 3D de Google, il offre une représentation incroyablement détaillée et très précise d'un environnement urbain. ",
       descriptionEn:
@@ -57,10 +57,10 @@ export const Projects = () => {
     },
     {
       id: 4,
-      cardImg: "/mario-kart-js.jpg",
+      cardImg: "/unnamed.png",
       img: "/porsche.jpg",
       logo: "/porsche-logo.png",
-      title: "Porsche",
+      title: "Porsche 3D Experience",
       descriptionFr:
         "Ce projet mêle codage, animation et cinéma pour créer une scène 3D réactive au défilement de l'utilisateur, tout en utilisant uniquement du code. Il harmonise technologie et art du codage pour offrir une esthétique cinématographique unique.",
       descriptionEn:
@@ -69,10 +69,10 @@ export const Projects = () => {
     },
     {
       id: 5,
-      cardImg: "/mario-kart-js.jpg",
+      cardImg: "/starfox-app.png",
       img: "/starfox.jpg",
       logo: "/StarFox_logo.png",
-      title: "Starfox",
+      title: "Star Fox",
       descriptionFr:
         "En essayant d'introduire le titre classique de la Nintendo 64 sur le Web, revivez le début du niveau original de Corneria avec votre souris et votre clavier. Entrez dans votre Arwing et éliminez l'armée du méchant Roi Singe. Faisons du rock and roll !",
       descriptionEn:
@@ -84,7 +84,7 @@ export const Projects = () => {
       cardImg: "/vision.jpg",
       img: "/vision.png",
       logo: "/Apple-Logo.png",
-      title: "Appel vision UI",
+      title: "Apple Vision Pro UI",
       descriptionFr:
         "J'ai adoré le nouveau concept d'Apple Vision Pro, alors je l'ai recréé : une interface utilisateur spatiale dans un appartement en 3D. Vous pouvez interagir avec elle sous différents angles en bougeant votre tête !",
       descriptionEn:
