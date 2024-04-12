@@ -1,7 +1,8 @@
 import { useEffect, useId, useState } from "react";
 import { BokehSinusoide, BokehAnimation } from "./Bokeh";
 
-export const BokehParticles = () => {
+export const BokehParticles = ({ isAbout }) => {
+  console.log(isAbout);
   return (
     <mesh rotation={[0, 0, -0.03]}>
       {Array.from({ length: 1000 }).map((_, i) => (
@@ -15,10 +16,12 @@ export const BokehParticles = () => {
             ]}
           />
 
-          <BokehAnimation
-            key={useId()}
-            position={[(i - 500) / 8, (Math.random() - 0.5) * 1, -90]}
-          />
+          {isAbout ? (
+            <BokehAnimation
+              key={useId()}
+              position={[(i - 500) / 8, (Math.random() - 0.5) * 1, -90]}
+            />
+          ) : null}
         </>
       ))}
     </mesh>

@@ -25,6 +25,7 @@ export const BokehSinusoide = ({ position }) => {
     color: colors[Math.floor(Math.random() * colors.length)],
     texture: bokehTextures[Math.floor(Math.random() * bokehTextures.length)],
   });
+  const [currentUrl, setCurrentUrl] = useState(window.location.pathname);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -41,6 +42,10 @@ export const BokehSinusoide = ({ position }) => {
       return () => clearInterval(interval);
     }, 1000);
   }, []);
+
+  useEffect(() => {
+    setCurrentUrl(window.location.pathname);
+  }, [window.location.href]);
 
   const mesh = useRef();
   const materialRef = useRef();
@@ -83,10 +88,14 @@ export const BokehSinusoide = ({ position }) => {
       mesh.current.scale.x -= 0.1;
       mesh.current.scale.y -= 0.1;
       mesh.current.scale.z -= 0.1;
-    } else if (!opacityTrigger && mesh.current.scale.x < 1) {
-      mesh.current.scale.x = property.scale;
-      mesh.current.scale.z = property.scale;
-      mesh.current.scale.y = property.scale;
+    } else if (
+      !opacityTrigger &&
+      mesh.current.scale.x < property.scale &&
+      currentUrl === "/projects"
+    ) {
+      mesh.current.scale.x += 0.1;
+      mesh.current.scale.y += 0.1;
+      mesh.current.scale.z += 0.1;
     }
 
     mesh.current.position.x += property.directionX * property.speed * delta;

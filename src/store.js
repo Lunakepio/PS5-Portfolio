@@ -5,4 +5,14 @@ export const useAppStore = create((set) => ({
   setOpacity(opacity) {
     set({ opacityTrigger: opacity });
   },
+
+  languageSelect: "fr",
+  setLanguage(language) {
+    set({ languageSelect: language });
+  },
+
+  page: "projects",
+  setPage(page) {
+    set({ page: page });
+  },
 }));
