@@ -4,25 +4,35 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Projects } from "./pages/Projects";
 import { Bloom, EffectComposer } from "@react-three/postprocessing";
 import { Canvas } from "@react-three/fiber";
+import { useEffect, useState } from "react";
+import { About } from "./pages/About";
 
 function App() {
+  const [isMessageShow, setIsMessageShow] = useState(true);
+
+  useEffect(() => {
+    if (window.location.pathname === "/projects") {
+      setIsMessageShow(false);
+    }
+  }, []);
+
   return (
     <>
       <Router>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route
+            path="/"
+            element={
+              <Home
+                isMessageShow={isMessageShow}
+                setIsMessageShow={setIsMessageShow}
+              />
+            }
+          />
           <Route path="/projects" element={<Projects />} />
+          <Route path="/about" element={<About />} />
         </Routes>
       </Router>
-      <div className="canvas-container">
-        <Canvas shadows camera={{ position: [0, 0, -100], fov: 30 }}>
-          <color attach="background" args={["#000011"]} />
-          <Experience />
-          <EffectComposer>
-            <Bloom luminanceThreshold={0} luminanceSmoothing={0.9} mipmapBlur />
-          </EffectComposer>
-        </Canvas>
-      </div>
     </>
   );
 }

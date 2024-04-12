@@ -10,7 +10,19 @@ export const Experience = () => {
       <Background />
       <MeshRay />
       <MeshReflection />
-      <BokehParticles />
+      <BokehParticles isAbout={true} />
+      <OrbitControls />
+    </>
+  );
+};
+
+export const ExperienceAbout = () => {
+  return (
+    <>
+      <Background />
+      <MeshRay />
+      <MeshReflection />
+      <BokehParticles isAbout={false} />
       <OrbitControls />
     </>
   );

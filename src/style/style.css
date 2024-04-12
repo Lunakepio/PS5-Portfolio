@@ -10,6 +10,8 @@ html {
 }
 
 body {
+  background: #000011;
+  color: white;
   margin: 0;
 }
 
@@ -19,6 +21,8 @@ body {
   box-sizing: border-box;
   font-family: "Open Sans";
   letter-spacing: 0.5px;
+  color: unset;
+  text-decoration: none;
 }
 
 .canvas-container {
@@ -298,6 +302,8 @@ body {
 
 nav {
   position: fixed;
+  top: 0;
+  left: 0;
   z-index: 200;
   padding: 30px 55px;
   color: white;
@@ -501,10 +507,11 @@ nav {
 
     img {
       width: 50%;
+      max-width: 150px;
     }
 
     p {
-      width: 90%;
+      width: 95%;
       text-align: center;
     }
 
