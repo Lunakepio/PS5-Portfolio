@@ -83,7 +83,12 @@ export const BokehSinusoide = ({ position }) => {
       mesh.current.scale.x -= 0.1;
       mesh.current.scale.y -= 0.1;
       mesh.current.scale.z -= 0.1;
+    } else if (!opacityTrigger && mesh.current.scale.x < 1) {
+      mesh.current.scale.x = property.scale;
+      mesh.current.scale.z = property.scale;
+      mesh.current.scale.y = property.scale;
     }
+
     mesh.current.position.x += property.directionX * property.speed * delta;
     mesh.current.position.y += property.directionY * property.speed * delta;
     mesh.current.position.z += property.directionZ * property.speed * delta;

@@ -1,4 +1,6 @@
-export const projetsData = [
+
+
+export const projectsData = [
   {
     id: 1,
     cardImg: "/mario-kart-js.jpg",

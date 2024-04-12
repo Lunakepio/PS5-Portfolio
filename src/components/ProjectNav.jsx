@@ -1,4 +1,4 @@
-export const ProjetNav = ({ setPosition }) => {
+export const ProjectNav = ({ setPosition }) => {
 
     return <nav>
         <ul className="navContainer">

@@ -25,7 +25,9 @@ body {
   position: absolute;
   width: 100vw;
   height: 100vh;
+  top: 0;
   overflow: hidden;
+  z-index: -2;
 }
 .content {
   position: absolute;
@@ -97,7 +99,7 @@ body {
 }
 
 .buttonClicked {
-  animation: scaleDown 0.6s ease-in-out forwards;
+  animation: scaleDown 0.6s ease-in-out forwards !important;
 }
 
 .absolute {
@@ -233,7 +235,7 @@ body {
       &::after {
         content: "";
         position: absolute;
-        animation: glowProjet 6s infinite ease-in-out;
+        animation: glowProject 6s infinite ease-in-out;
         top: -50%;
         left: -50%;
         transform: translate(-50%, -50%) rotate(45deg);
@@ -263,7 +265,7 @@ body {
       opacity: 0;
       transition: all 0.3s;
       animation: unHide 1s ease-in-out forwards;
-      animation-delay: 2.5s;
+      animation-delay: 1s;
 
       svg {
         opacity: 0.7;
@@ -288,11 +290,11 @@ body {
     transition: all 0.3s;
     font-weight: lighter;
     animation: unHide 1s ease-in-out forwards;
-    animation-delay: 2.5s;
+    animation-delay: 1s;
   }
 }
 
-/* Projets Page */
+/* Projects Page */
 
 nav {
   position: fixed;
@@ -306,7 +308,7 @@ nav {
     gap: 100px;
     font-size: 25px;
 
-    li{
+    li {
       list-style-type: none;
       cursor: pointer;
     }
@@ -315,12 +317,34 @@ nav {
 
 .pageContainer {
   display: flex;
-  transition: all .3s;
+  transition: all 0.3s;
   transform: translateX(-0%);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.9626051104035365) 5%,
+    rgba(0, 0, 0, 0) 100%
+  );
   width: 200vw;
+  z-index: 900;
 }
 
-.projetsContentPage {
+.projectPageContainer {
+  background-size: cover;
+  background-position: center;
+  opacity: 1;
+  transition: opacity 0.3s linear;
+}
+
+.leaveProjectPage {
+  .projectsContainer,
+  .projectInformationContainer,
+  .gradient {
+    animation: disappear 0.3s forwards !important;
+    animation-delay: 0.8s !important;
+  }
+}
+
+.projectsContentPage {
   width: 100vw;
   height: 100vh;
   background: #000011;
@@ -329,10 +353,6 @@ nav {
   padding: 90px 0 0 50px;
   color: white;
   position: relative;
-
-  .background-animation {
-    animation: backgroundProjet 0.5s forwards;
-  }
 
   .background {
     width: 100%;
@@ -346,31 +366,37 @@ nav {
 
   .gradient {
     position: absolute;
-    background: rgb(0,0,0);
-    background: linear-gradient(90deg, rgba(0,0,0,0.9626051104035365) 5%, rgba(0,0,0,0) 100%);
-      width: 100vw;
-      height: 100vh;
-      top: 0;
-      left: 0;
+    background: rgb(0, 0, 0);
+    background: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.9626051104035365) 5%,
+      rgba(0, 0, 0, 0) 100%
+    );
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    transition: opacity 1s;
   }
 
-  .projetsContainer {
+  .projectsContainer {
     display: flex;
     z-index: 100;
     width: fit-content;
-    transition: all .3s ease-in-out;
+    transition: all 0.3s ease-in-out;
 
-    .projetContent-active {
+    .projectContent-active {
       width: 150px !important;
       height: 150px !important;
 
-      .imageProjet {
+      .imageProject {
         position: relative;
+        border: 2px solid #000011;
 
         &::after {
           content: "";
           position: absolute;
-          animation: glowProjet 6s infinite ease-in-out;
+          animation: glowProject 6s infinite ease-in-out;
           top: -50%;
           left: -50%;
           transform: translate(-50%, -50%) rotate(45deg);
@@ -385,7 +411,7 @@ nav {
         &::before {
           content: "";
           position: absolute;
-          animation: glowProjet 6s infinite ease-in-out;
+          animation: glowProject 6s infinite ease-in-out;
           top: -50%;
           left: -50%;
           transform: translate(-50%, -50%) rotate(45deg);
@@ -398,26 +424,25 @@ nav {
         }
       }
 
-      .glowProjet {
+      .glowProject {
         opacity: 1 !important;
       }
 
       h2 {
         opacity: 1 !important;
       }
-
-      
     }
 
-    .projetContent {
+    .projectContent {
       position: relative;
       width: 100px;
       height: 100px;
       opacity: 0;
       transition: all 0.1s ease-in-out;
       animation: appear 0.3s ease-in-out forwards;
+      cursor: pointer;
 
-      .imageContainer{
+      .imageContainer {
         width: 95%;
         height: 95%;
         overflow: hidden;
@@ -428,20 +453,18 @@ nav {
         justify-content: center;
         border-radius: 20px;
 
-        .glowProjet {
+        .glowProject {
           position: absolute;
           width: 150%;
           height: 150%;
           animation: borderMove 5s linear infinite;
           offset-path: rect(0% auto 100% auto);
-          background: radial-gradient(rgba(255,255,255, 0.6), transparent);
+          background: radial-gradient(rgba(255, 255, 255, 0.6), transparent);
           opacity: 0;
         }
       }
 
-      .imageProjet {
-        outline: 0px solid #4c4b54;
-        border: 0px solid #000011;
+      .imageProject {
         width: 100%;
         height: 100%;
         background-size: cover;
@@ -450,7 +473,7 @@ nav {
         transition: all 0.2s ease-in-out;
         position: relative;
         border-radius: 20px;
-        overflow: hidden; 
+        overflow: hidden;
       }
 
       h2 {
@@ -466,7 +489,7 @@ nav {
     }
   }
 
-  .logoDescriptionContainer {
+  .projectInformationContainer {
     position: absolute;
     bottom: 10%;
     z-index: 100;
@@ -475,7 +498,6 @@ nav {
     align-items: center;
     width: 38vw;
     gap: 40px;
-
 
     img {
       width: 50%;
@@ -486,32 +508,123 @@ nav {
       text-align: center;
     }
 
-    .visit {
+    .buttonContainer {
       width: 50%;
-      padding: 20px;
+      overflow: hidden;
+      padding: 2px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       border-radius: 50px;
-      background: rgba(255, 255, 255, 0.05);
-      color: white;
-      font-size: 20px;
-      font-weight: bold;
-      text-align: center;
-      text-decoration: none;
-      cursor: pointer;
-      border: 0;
+      transition: all 0.3s;
+
+      &:hover {
+        .glowProjectLink {
+          opacity: 1;
+        }
+      }
+
+      .glowProjectLink {
+        position: absolute;
+        width: 200%;
+        height: 800%;
+        background-image: conic-gradient(
+          rgba(255, 255, 255, 0),
+          rgba(255, 255, 255, 0.6)
+        );
+        animation: borderMoveButton 5s linear infinite;
+        opacity: 0;
+        pointer-events: none;
+        border-radius: 50px;
+      }
+
+      .visit {
+        z-index: 100;
+        width: 100%;
+        padding: 20px;
+        border-radius: 50px;
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+        text-decoration: none;
+        cursor: pointer;
+        border: 0;
+
+        &:hover {
+          background-color: white;
+          color: black;
+        }
+      }
+
+      .visitActive {
+        background: white;
+        columns: black;
+      }
     }
-
-    
-  }
-
-  .LogoDescriptionAnimation {
-    animation: descriptionLogoProjet .5s forwards;
   }
 }
 
 .aboutContentPage {
   width: 100vw;
   height: 100vh;
-  background-color:  red;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  color: white;
+
+  .information {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 15%;
+    gap: 10px;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    .imageContainer {
+      width: 95%;
+      height: 95%;
+      overflow: hidden;
+      padding: 4px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      left: 15px;
+
+      .glowProject {
+        position: absolute;
+        width: 150%;
+        height: 150%;
+        animation: borderMove 5s linear infinite;
+        offset-path: rect(0% auto 100% auto);
+        background: radial-gradient(rgba(255, 255, 255, 0.6), transparent);
+        opacity: 1;
+        z-index: -2;
+      }
+    }
+
+    img {
+      width: 100%;
+      border-radius: 50%;
+    }
+  }
+
+  .description {
+    width: 50%;
+    position: relative;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+  }
 }
 
 @keyframes heartbeat {
@@ -540,7 +653,7 @@ nav {
   }
 }
 
-@keyframes glowProjet {
+@keyframes glowProject {
   0% {
     top: -50%;
     left: -50%;
@@ -660,28 +773,6 @@ nav {
   }
 }
 
-@keyframes backgroundProjet {
-  from {
-    transform: translateX(5%);
-    opacity: 0.4;
-  }
-  to {
-    transfrom: translate(0);
-    opacity: 1;
-  }
-}
-
-@keyframes descriptionLogoProjet {
-  from {
-    transform: translateY(5%);
-    opacity: 0.4;
-  }
-  to {
-    transfrom: translate(0);
-    opacity: 1;
-  }
-}
-
 @keyframes borderMove {
   0% {
     offset-distance: 0%;
@@ -689,5 +780,15 @@ nav {
 
   100% {
     offset-distance: 100%;
+  }
+}
+
+@keyframes borderMoveButton {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
   }
 }
