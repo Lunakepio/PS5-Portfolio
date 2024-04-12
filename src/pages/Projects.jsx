@@ -26,9 +26,9 @@ export const Projects = () => {
       logo: "/logo-mario.png",
       title: "Mario Kart 3.js",
       descriptionFr:
-        "Mario Kart JS est la reproduction du jeu Mario Kart fait par Nintendo sur navigateur web grâce à React Three JS",
+        "Mario Kart 3.JS est la reproduction du jeu Mario Kart réalisé par Nintendo, mais sur navigateur web grâce à WebGL",
       descriptionEn:
-        "Mario Kart JS is the reproduction of the Mario Kart game made by Nintendo on a web browser using React Three JS",
+        "Mario Kart 3.JS is the reproduction of the Mario Kart game made by Nintendo on a web browser using WebGL",
       link: "https://github.com/Lunakepio/Mario-Kart-3.js/tree/main",
     },
     {
@@ -47,7 +47,7 @@ export const Projects = () => {
       id: 3,
       cardImg: "/card-flightSim.webp",
       img: "/background-filghtSim.webp",
-      logo: "/star_wars_logo.png",
+      logo: "/f4u.webp",
       title: "3D Flight Simulator.js",
       descriptionFr:
         "Vivez le frisson de voler sans jamais quitter votre siège avec ce simulateur de vol 3D immersif, optimisé par Three.js. Conçu en 3D et utilisant l'API innovante de tuiles 3D de Google, il offre une représentation incroyablement détaillée et très précise d'un environnement urbain. ",
@@ -62,7 +62,7 @@ export const Projects = () => {
       logo: "/porsche-logo.png",
       title: "Porsche 3D Experience",
       descriptionFr:
-        "Ce projet mêle codage, animation et cinéma pour créer une scène 3D réactive au défilement de l'utilisateur, tout en utilisant uniquement du code. Il harmonise technologie et art du codage pour offrir une esthétique cinématographique unique.",
+        "Ce projet mêle programmation, animation et cinéma pour créer une scène 3D réactive au défilement de l'utilisateur. Il harmonise technologie et creative coding pour offrir une esthétique cinématographique unique.",
       descriptionEn:
         "This project blends coding, animation, and cinema to create a 3D scene that reacts to user scrolling, all crafted with pure code. It seamlessly harmonizes technology with artistic coding to deliver a distinctive cinematic aesthetic.",
       link: "https://3d-test-beta.vercel.app/",

@@ -44,10 +44,9 @@ export const Home = ({ isMessageShow, setIsMessageShow }) => {
             justifyContent: "center",
           }}
         >
-          <p style={{ width: "60vw", textAlign: "center" }}>
-            Lorem ipsum dolor sit amet, officia excepteur ex fugiat
-            reprehenderit enim labore culpa sint ad nisi Lorem pariatur mollit
-            ex esse exercitation amet.
+          <p style={{ width: "60w", textAlign: "center" }}>
+            Ce que vous allez voir est une expérience interactive mêlant 2D et 3D en temps réel. Pour une meilleure
+            expérience, veuillez utiliser un ordinateur de bureau ou un ordinateur portable.
           </p>
         </section>
       ) : (

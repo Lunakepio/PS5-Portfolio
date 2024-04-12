@@ -8,7 +8,7 @@ export const Background = () => {
         <GradientTexture
           type={GradientType.Radial}
           stops={[0, 1]}
-          colors={["#1c1c27", "#000011"]}
+          colors={["#292938", "#000011"]}
           size={1024}
         />
       </meshBasicMaterial>
