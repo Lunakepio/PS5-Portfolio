@@ -5,8 +5,12 @@
   height: 100vh;
 }
 
-html {
-  overflow: hidden;
+html,
+body {
+  overflow: hidden !important;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
 }
 
 body {
@@ -45,7 +49,7 @@ body {
 
   p {
     animation: scaleUp 1s ease-in-out forwards;
-    animation-delay: 2.5s;
+    animation-delay: 1s;
     text-align: center;
     transform: scale(0);
     font-weight: 100;
@@ -162,7 +166,7 @@ body {
   align-items: center;
   margin: 100px;
   animation: scaleUp 1s ease-in-out forwards;
-  animation-delay: 2.5s;
+  animation-delay: 1s;
   transform: scale(0);
   cursor: pointer;
 }
@@ -631,6 +635,56 @@ nav {
     padding: 20px;
     border-radius: 10px;
     text-align: center;
+  }
+}
+
+/* Responcive */
+
+@media only screen and (max-width: 600px) {
+  .userChoice h1 {
+    font-size: 25px !important;
+  }
+
+  .navContainer {
+    gap: 50px !important;
+  }
+
+  .projectContent h2 {
+    top: 80% !important;
+    font-size: 18px !important;
+    width: 30vw !important;
+  }
+
+  .projectInformationContainer {
+    width: 80vw !important;
+    bottom: 15% !important;
+    gap: 15px !important;
+
+    img {
+      width: 40% !important;
+    }
+
+    p {
+      font-size: 14px;
+    }
+
+    .buttonContainer {
+      width: 70% !important;
+    }
+  }
+
+  .aboutContentPage {
+    gap: 10px !important;
+  }
+
+  .information {
+    width: 50% !important;
+  }
+
+  .description {
+    width: 90% !important;
+    font-size: 15px;
+    padding: unset !important;
   }
 }
 

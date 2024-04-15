@@ -54,7 +54,11 @@ export const Content = () => {
       <section className={containerClass} ref={buttonContentRef}>
         <p>Press the PS button on your controller.</p>
         <div className="mainButton">
-          <div className="button" onClick={pressButton}>
+          <div
+            className="button"
+            onClick={pressButton}
+            onTouchStart={pressButton}
+          >
             <div className="icon">
               <img src="./PS.png" alt="PlayStation button" />
             </div>

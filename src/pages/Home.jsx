@@ -3,14 +3,19 @@ import { Content } from "../components/Content";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { Scene } from "../components/Scene";
+import { useAppStore } from "../store";
 
-export const Home = ({ isMessageShow, setIsMessageShow }) => {
+export const Home = () => {
   const messageRef = useRef();
+
+  const { isMessageShow, setIsMessageShow } = useAppStore();
 
   useEffect(() => {
     setTimeout(() => {
       setIsMessageShow(false);
-    }, 4000);
+    }, 5500);
+
+    setIsMessageShow(true);
   }, []);
 
   useGSAP(() => {
@@ -29,6 +34,9 @@ export const Home = ({ isMessageShow, setIsMessageShow }) => {
       opacity: 0,
       duration: 1.3,
       delay: 4,
+      onComplete: () => {
+        messageRef.current.style.display = "none";
+      },
     });
   }, []);
   return (
@@ -55,7 +63,7 @@ export const Home = ({ isMessageShow, setIsMessageShow }) => {
       </section>
 
       {isMessageShow ? null : <Content />}
-      <Scene isMessageShow={isMessageShow} isAbout={false} />
+      <Scene isAbout={false} />
     </>
   );
 };

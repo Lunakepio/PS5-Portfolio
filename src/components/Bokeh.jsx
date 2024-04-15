@@ -146,7 +146,11 @@ export const BokehAnimation = ({ position }) => {
   const mesh = useRef();
   const materialRef = useRef();
 
+  const { isMessageShow } = useAppStore();
+
   useGSAP(() => {
+    if (isMessageShow) return;
+
     gsap.fromTo(
       materialRef.current,
       {
@@ -173,20 +177,20 @@ export const BokehAnimation = ({ position }) => {
         y: property.scale / 9,
         z: property.scale / 9,
         duration: Math.random() * 1 + 1,
-        delay: 0,
-        ease: "power1.inOut",
       },
     );
     materialRef.current.color.multiplyScalar(0.5 + Math.random() * 0.5);
-  }, []);
+  }, [isMessageShow]);
 
   useFrame((state, delta) => {
-    mesh.current.position.x +=
-      property.directionX * property.speed * delta * 20;
-    mesh.current.position.y +=
-      property.directionY * property.speed * delta * 20;
-    mesh.current.position.z +=
-      property.directionZ * property.speed * delta * 200;
+    if (!isMessageShow) {
+      mesh.current.position.x +=
+        property.directionX * property.speed * delta * 20;
+      mesh.current.position.y +=
+        property.directionY * property.speed * delta * 20;
+      mesh.current.position.z +=
+        property.directionZ * property.speed * delta * 200;
+    }
   });
 
   return (
