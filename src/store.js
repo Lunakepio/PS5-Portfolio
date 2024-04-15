@@ -15,4 +15,9 @@ export const useAppStore = create((set) => ({
   setPage(page) {
     set({ page: page });
   },
+
+  isMessageShow: true,
+  setIsMessageShow(isShow) {
+    set({ isMessageShow: isShow });
+  },
 }));

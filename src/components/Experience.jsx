@@ -1,20 +1,17 @@
-import { OrbitControls } from "@react-three/drei";
+import { OrbitControls, Preload } from "@react-three/drei";
 import { MeshRay } from "./godrays/Mesh";
 import { MeshReflection } from "./reflection/Mesh";
 import { BokehParticles } from "./BokehParticles";
 import { Background } from "./Background";
+import { useAppStore } from "../store";
 
-export const Experience = ({ isMessageShow }) => {
+export const Experience = () => {
   return (
     <>
       <Background />
       <MeshRay />
       <MeshReflection />
-      {!isMessageShow ? (
-        <>
-          <BokehParticles isAbout={true} />
-        </>
-      ) : null}
+      <BokehParticles isAbout={true} />
     </>
   );
 };
