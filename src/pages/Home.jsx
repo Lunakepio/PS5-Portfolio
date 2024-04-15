@@ -10,7 +10,7 @@ export const Home = ({ isMessageShow, setIsMessageShow }) => {
   useEffect(() => {
     setTimeout(() => {
       setIsMessageShow(false);
-    }, 5400);
+    }, 4000);
   }, []);
 
   useGSAP(() => {
@@ -33,34 +33,29 @@ export const Home = ({ isMessageShow, setIsMessageShow }) => {
   }, []);
   return (
     <>
-      {isMessageShow ? (
-        <section
-          ref={messageRef}
-          style={{
-            width: "100vw",
-            height: "100vh",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <p style={{ width: "60w", textAlign: "center" }}>
-            Ce que vous allez voir est une expérience interactive mêlant 2D et 3D en temps réel. Pour une meilleure
-            expérience, veuillez utiliser un ordinateur de bureau ou un ordinateur portable.
-          </p>
-        </section>
-      ) : (
-        <Suspense
-          fallback={
-            <div
-              style={{ background: "#000011", width: "100vw", height: "100vh" }}
-            ></div>
-          }
-        >
-          <Content />
-          <Scene isMessageShow={isMessageShow} isAbout={false} />
-        </Suspense>
-      )}
+      <section
+        ref={messageRef}
+        style={{
+          width: "100vw",
+          height: "100vh",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          position: "absolute",
+          top: "0",
+          left: "0",
+          zIndex: "300",
+        }}
+      >
+        <p style={{ width: "60w", textAlign: "center" }}>
+          Ce que vous allez voir est une expérience interactive mêlant 2D et 3D
+          en temps réel. Pour une meilleure expérience, veuillez utiliser un
+          ordinateur de bureau ou un ordinateur portable.
+        </p>
+      </section>
+
+      {isMessageShow ? null : <Content />}
+      <Scene isMessageShow={isMessageShow} isAbout={false} />
     </>
   );
 };

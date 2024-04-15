@@ -1,9 +1,6 @@
 import { Home } from "./pages/Home";
-import { Experience } from "./components/Experience";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Projects } from "./pages/Projects";
-import { Bloom, EffectComposer } from "@react-three/postprocessing";
-import { Canvas } from "@react-three/fiber";
 import { useEffect, useState } from "react";
 import { About } from "./pages/About";
 

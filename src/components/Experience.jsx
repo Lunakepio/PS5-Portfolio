@@ -4,14 +4,17 @@ import { MeshReflection } from "./reflection/Mesh";
 import { BokehParticles } from "./BokehParticles";
 import { Background } from "./Background";
 
-export const Experience = () => {
+export const Experience = ({ isMessageShow }) => {
   return (
     <>
       <Background />
       <MeshRay />
       <MeshReflection />
-      <BokehParticles isAbout={true} />
-      <OrbitControls />
+      {!isMessageShow ? (
+        <>
+          <BokehParticles isAbout={true} />
+        </>
+      ) : null}
     </>
   );
 };
