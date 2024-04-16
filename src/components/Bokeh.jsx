@@ -177,25 +177,25 @@ export const BokehAnimation = ({ position }) => {
         opacity: 0,
       },
       {
-        opacity: Math.random() * 1,
-        duration: 0.5,
-        delay: 4.3,
+        opacity: Math.random() - 0.7,
+        duration: Math.random() * 4,
+        delay: 3.8,
       },
     );
 
     gsap.fromTo(
       mesh.current.scale,
       {
-        x: visualProperty.scale * 6,
-        y: visualProperty.scale * 6,
-        z: visualProperty.scale * 6,
+        x: visualProperty.scale * 12,
+        y: visualProperty.scale * 12,
+        z: visualProperty.scale * 12,
       },
       {
-        x: visualProperty.scale / 9,
-        y: visualProperty.scale / 9,
-        z: visualProperty.scale / 9,
-        duration: Math.random() * 1 + 1,
-        delay: 4,
+        x: visualProperty.scale / 8,
+        y: visualProperty.scale / 8,
+        z: visualProperty.scale / 8,
+        duration: 0.6,
+        delay: 4.7,
       },
     );
     materialRef.current.color.multiplyScalar(0.5 + Math.random() * 0.5);
@@ -203,11 +203,11 @@ export const BokehAnimation = ({ position }) => {
   useFrame((state, delta) => {
     if (isTimeoutEnd) {
       mesh.current.position.x +=
-        moveProperty.directionX * moveProperty.speed * delta * 20;
+        moveProperty.directionX * moveProperty.speed * delta * 50;
       mesh.current.position.y +=
-        moveProperty.directionY * moveProperty.speed * delta * 20;
+        moveProperty.directionY * moveProperty.speed * delta * 50;
       mesh.current.position.z +=
-        moveProperty.directionZ * moveProperty.speed * delta * 200;
+        moveProperty.directionZ * moveProperty.speed * delta * 100;
     }
   });
 
