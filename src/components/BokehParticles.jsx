@@ -1,6 +1,6 @@
 import { BokehSinusoide, BokehAnimation } from "./Bokeh";
 
-export const BokehParticles = ({ isAbout }) => {
+export const BokehParticles = () => {
   return (
     <mesh rotation={[0, 0, -0.03]}>
       {Array.from({ length: 1000 }).map((_, i) => (
@@ -14,12 +14,10 @@ export const BokehParticles = ({ isAbout }) => {
             ]}
           />
 
-          {isAbout ? (
-            <BokehAnimation
-              key={1005 + i}
-              position={[(i - 500) / 8, (Math.random() - 0.5) * 1, -90]}
-            />
-          ) : null}
+          <BokehAnimation
+            key={1005 + i}
+            position={[(i - 500) / 8, (Math.random() - 0.5) * 1, -90]}
+          />
         </>
       ))}
     </mesh>

@@ -10,14 +10,4 @@ export const useAppStore = create((set) => ({
   setLanguage(language) {
     set({ languageSelect: language });
   },
-
-  page: "projects",
-  setPage(page) {
-    set({ page: page });
-  },
-
-  isMessageShow: true,
-  setIsMessageShow(isShow) {
-    set({ isMessageShow: isShow });
-  },
 }));

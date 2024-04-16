@@ -3,7 +3,6 @@ import { MeshRay } from "./godrays/Mesh";
 import { MeshReflection } from "./reflection/Mesh";
 import { BokehParticles } from "./BokehParticles";
 import { Background } from "./Background";
-import { useAppStore } from "../store";
 
 export const Experience = () => {
   return (
@@ -11,7 +10,7 @@ export const Experience = () => {
       <Background />
       <MeshRay />
       <MeshReflection />
-      <BokehParticles isAbout={true} />
+      <BokehParticles />
     </>
   );
 };
@@ -22,7 +21,7 @@ export const ExperienceAbout = () => {
       <Background />
       <MeshRay />
       <MeshReflection />
-      <BokehParticles isAbout={false} />
+      <BokehParticles />
       <OrbitControls />
     </>
   );

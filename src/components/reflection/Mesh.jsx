@@ -21,7 +21,7 @@ export const MeshReflection = () => {
         y: 10,
         z: 10,
         duration: 3,
-        delay: 1,
+        delay: 5,
       },
     );
   }, []);

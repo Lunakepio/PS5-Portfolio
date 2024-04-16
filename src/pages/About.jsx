@@ -79,14 +79,11 @@ export const About = () => {
           right: "20px",
           zIndex: "999",
         }}
+        defaultValue={"en"}
         onChange={(e) => setLanguage(e.target.value)}
       >
-        <option selected value={"en"}>
-          🇺🇸
-        </option>
-        <option selected value={"fr"}>
-          🇫🇷
-        </option>
+        <option value={"en"}>🇺🇸</option>
+        <option value={"fr"}>🇫🇷</option>
       </select>
       <ProjectNav />
 

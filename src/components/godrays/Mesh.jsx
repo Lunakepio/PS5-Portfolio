@@ -19,7 +19,7 @@ export const MeshRay = () => {
         x: 30,
         z: 30,
         duration: 3,
-        delay: 1,
+        delay: 5,
       },
     );
   }, []);
