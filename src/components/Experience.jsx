@@ -8,9 +8,9 @@ export const Experience = () => {
   return (
     <>
       <Background />
-      <MeshRay />
-      <MeshReflection />
-      <BokehParticles />
+      <MeshRay isAbout={false} />
+      <MeshReflection isAbout={false} />
+      <BokehParticles isAbout={false} />
     </>
   );
 };
@@ -19,10 +19,9 @@ export const ExperienceAbout = () => {
   return (
     <>
       <Background />
-      <MeshRay />
-      <MeshReflection />
-      <BokehParticles />
-      <OrbitControls />
+      <MeshRay isAbout={true} />
+      <MeshReflection isAbout={true} />
+      <BokehParticles isAbout={true} />
     </>
   );
 };

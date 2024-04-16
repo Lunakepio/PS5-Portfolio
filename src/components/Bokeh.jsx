@@ -5,14 +5,17 @@ import { useFrame, useLoader } from "@react-three/fiber";
 import { TextureLoader } from "three";
 import { useAppStore } from "../store";
 
-export const BokehSinusoide = ({ position }) => {
-  const bokehOne = useLoader(TextureLoader, "/bokeh-1.png");
-  const bokehTwo = useLoader(TextureLoader, "/bokeh-2.png");
-  const bokehThree = useLoader(TextureLoader, "/bokeh-3.png");
-  const bokehFour = useLoader(TextureLoader, "/bokeh-4.png");
-  const bokehFive = useLoader(TextureLoader, "/bokeh-5.png");
-
-  const bokehTextures = [bokehOne, bokehTwo, bokehThree, bokehFour, bokehFive];
+export const BokehSinusoide = ({ position, isAbout }) => {
+  const bokehTextures = useMemo(
+    () => [
+      useLoader(TextureLoader, "/bokeh-1.png"),
+      useLoader(TextureLoader, "/bokeh-2.png"),
+      useLoader(TextureLoader, "/bokeh-3.png"),
+      useLoader(TextureLoader, "/bokeh-4.png"),
+      useLoader(TextureLoader, "/bokeh-5.png"),
+    ],
+    [],
+  );
   const colors = ["#eeaf6c", "#efc675", "#ae8456", "#ffdebd", "#ffefe0"];
   const { opacityTrigger } = useAppStore();
 
@@ -66,7 +69,7 @@ export const BokehSinusoide = ({ position }) => {
         z: visualProperty.scale,
         y: visualProperty.scale,
         duration: Math.random() * 3 + 1,
-        delay: 5,
+        delay: isAbout ? 0.5 : 5,
       },
     );
 

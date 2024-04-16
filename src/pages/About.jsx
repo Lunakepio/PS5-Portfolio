@@ -11,7 +11,7 @@ export const About = () => {
   const informationRef = useRef();
   const pageContainerRef = useRef();
 
-  const { setOpacity, setLanguage } = useAppStore();
+  const { setLanguage } = useAppStore();
 
   const defaultOptions = {
     reverse: true, // reverse the tilt direction
@@ -112,7 +112,7 @@ export const About = () => {
         </p>
       </section>
 
-      <Scene isMessageShow={false} isAbout={true} />
+      <Scene isAbout={true} />
     </main>
   );
 };

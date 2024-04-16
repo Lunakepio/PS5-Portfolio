@@ -10,4 +10,9 @@ export const useAppStore = create((set) => ({
   setLanguage(language) {
     set({ languageSelect: language });
   },
+
+  isAbout: false,
+  setIsAbout(isAbout) {
+    set({ isAbout: isAbout });
+  },
 }));
