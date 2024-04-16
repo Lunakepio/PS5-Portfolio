@@ -69,7 +69,7 @@ export const BokehSinusoide = ({ position, isAbout }) => {
         z: visualProperty.scale,
         y: visualProperty.scale,
         duration: Math.random() * 3 + 1,
-        delay: isAbout ? 0.5 : 5,
+        delay: isAbout ? Math.random() : Math.random() * 5 + 5,
       },
     );
 
@@ -94,14 +94,6 @@ export const BokehSinusoide = ({ position, isAbout }) => {
       mesh.current.scale.x -= 0.1;
       mesh.current.scale.y -= 0.1;
       mesh.current.scale.z -= 0.1;
-    } else if (
-      !opacityTrigger &&
-      mesh.current.scale.x < visualProperty.scale &&
-      currentUrl === "/projects"
-    ) {
-      mesh.current.scale.x += 0.1;
-      mesh.current.scale.y += 0.1;
-      mesh.current.scale.z += 0.1;
     }
 
     mesh.current.position.x +=
