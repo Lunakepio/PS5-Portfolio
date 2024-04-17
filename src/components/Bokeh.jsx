@@ -153,6 +153,7 @@ export const BokehAnimation = ({ position, index }) => {
   );
 
   const [isTimeoutEnd, setIsTimeoutEnd] = useState(false);
+  const [canMove, setCanMove] = useState(false);
   const mesh = useRef();
   const materialRef = useRef();
 
@@ -160,6 +161,12 @@ export const BokehAnimation = ({ position, index }) => {
     setTimeout(() => {
       setIsTimeoutEnd(true);
     }, 4000);
+
+    setTimeout(() => {
+      setTimeout(() => {
+        setCanMove(true);
+      }, 4000);
+    });
   }, []);
 
   useGSAP(() => {
@@ -173,7 +180,7 @@ export const BokehAnimation = ({ position, index }) => {
       {
         opacity: Math.random() - 0.7,
         duration: index <= 20 ? 0.5 : Math.random() * 4,
-        delay: index / 200,
+        delay: index / 90,
       },
     );
 
@@ -188,18 +195,18 @@ export const BokehAnimation = ({ position, index }) => {
         x: property.scale / 5,
         y: property.scale / 5,
         z: property.scale / 5,
-        duration: 0.6,
-        delay: 0.5,
+        duration: 0.5,
+        delay: 1.0,
       },
     );
   }, [isTimeoutEnd]);
 
   useFrame((state, delta) => {
-    if (isTimeoutEnd) {
+    if (canMove) {
       mesh.current.position.x +=
-        property.directionX * property.speed * delta * 40;
+        property.directionX * property.speed * delta * 100;
       mesh.current.position.y +=
-        property.directionY * property.speed * delta * 40;
+        property.directionY * property.speed * delta * 100;
       mesh.current.position.z +=
         property.directionZ * property.speed * delta * 100;
     }
