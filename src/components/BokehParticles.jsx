@@ -20,7 +20,12 @@ export const BokehParticles = ({ isAbout }) => {
         : Array.from({ length: 200 }).map((_, i) => (
             <BokehAnimation
               key={1005 + i}
-              position={[Math.random(), Math.random(), Math.random() * 5 - 95]}
+              position={[
+                Math.random() - 0.5,
+                Math.random() - 0.5,
+                Math.random() * 5 - 90,
+              ]}
+              index={i}
             />
           ))}
     </mesh>

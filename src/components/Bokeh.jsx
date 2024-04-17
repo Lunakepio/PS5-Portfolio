@@ -126,7 +126,7 @@ export const BokehSinusoide = ({ position, isAbout }) => {
   );
 };
 
-export const BokehAnimation = ({ position }) => {
+export const BokehAnimation = ({ position, index }) => {
   const bokehTextures = useMemo(
     () => [
       useLoader(TextureLoader, "/bokeh-1.png"),
@@ -172,7 +172,8 @@ export const BokehAnimation = ({ position }) => {
       },
       {
         opacity: Math.random() - 0.7,
-        duration: Math.random() * 4,
+        duration: index <= 20 ? 0.5 : Math.random() * 4,
+        delay: index / 200,
       },
     );
 
@@ -184,9 +185,9 @@ export const BokehAnimation = ({ position }) => {
         z: property.scale * 12,
       },
       {
-        x: property.scale / 9,
-        y: property.scale / 9,
-        z: property.scale / 9,
+        x: property.scale / 5,
+        y: property.scale / 5,
+        z: property.scale / 5,
         duration: 0.6,
         delay: 0.5,
       },
@@ -196,11 +197,11 @@ export const BokehAnimation = ({ position }) => {
   useFrame((state, delta) => {
     if (isTimeoutEnd) {
       mesh.current.position.x +=
-        property.directionX * property.speed * delta * 100;
+        property.directionX * property.speed * delta * 40;
       mesh.current.position.y +=
-        property.directionY * property.speed * delta * 100;
+        property.directionY * property.speed * delta * 40;
       mesh.current.position.z +=
-        property.directionZ * property.speed * delta * 100 * 2;
+        property.directionZ * property.speed * delta * 100;
     }
   });
 
