@@ -179,7 +179,7 @@ export const BokehAnimation = ({ position, index }) => {
       },
       {
         opacity: Math.random() - 0.7,
-        duration: index <= 20 ? 0.5 : Math.random() * 4,
+        duration: index <= 20 ? 1 : Math.random() * 4,
         delay: index / 90,
       },
     );
@@ -197,6 +197,7 @@ export const BokehAnimation = ({ position, index }) => {
         z: property.scale / 5,
         duration: 0.5,
         delay: 1.0,
+        ease: "circ.inOut",
       },
     );
   }, [isTimeoutEnd]);
