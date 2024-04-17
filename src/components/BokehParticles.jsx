@@ -17,7 +17,7 @@ export const BokehParticles = ({ isAbout }) => {
 
       {isAbout
         ? null
-        : Array.from({ length: 200 }).map((_, i) => (
+        : Array.from({ length: 700 }).map((_, i) => (
             <BokehAnimation
               key={1005 + i}
               position={[
