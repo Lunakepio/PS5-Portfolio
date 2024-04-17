@@ -25,7 +25,6 @@ export const BokehSinusoide = ({ position, isAbout }) => {
     directionZ: Math.random() - 0.5,
     speed: Math.random() - 0.5,
   });
-  const [currentUrl, setCurrentUrl] = useState(window.location.pathname);
 
   const visualProperty = useMemo(
     () => ({
@@ -49,53 +48,56 @@ export const BokehSinusoide = ({ position, isAbout }) => {
     }, 3000);
   }, []);
 
-  useEffect(() => {
-    setCurrentUrl(window.location.pathname);
-  }, [window.location.href]);
-
   const mesh = useRef();
   const materialRef = useRef();
 
   useGSAP(() => {
-    gsap.fromTo(
-      mesh.current.scale,
-      {
-        x: 0,
-        y: 0,
-        z: 0,
-      },
-      {
+    if (opacityTrigger) {
+      gsap.set(mesh.current.scale, {
         x: visualProperty.scale,
         z: visualProperty.scale,
         y: visualProperty.scale,
-        duration: Math.random() * 3 + 1,
-        delay: isAbout ? Math.random() : Math.random() * 5 + 5,
-      },
-    );
+      });
+      gsap.to(mesh.current.scale, {
+        x: 0,
+        y: 0,
+        z: 0,
+        duration: Math.random() * 2,
+      });
+    } else {
+      gsap.fromTo(
+        mesh.current.scale,
+        {
+          x: 0,
+          y: 0,
+          z: 0,
+        },
+        {
+          x: visualProperty.scale,
+          z: visualProperty.scale,
+          y: visualProperty.scale,
+          duration: Math.random() * 1 + 1,
+          delay: isAbout ? Math.random() : Math.random() * 10 + 5,
+        },
+      );
 
-    gsap.fromTo(
-      materialRef.current,
-      {
-        opacity: Math.random() * 1,
-      },
-      {
-        opacity: 0,
-        duration: Math.random() * 8 + 1,
-        repeat: -1,
-        yoyo: true,
-        ease: "power1.inOut",
-      },
-    );
-    materialRef.current.color.multiplyScalar(0.5 + Math.random() * 0.5);
-  }, []);
+      gsap.fromTo(
+        materialRef.current,
+        {
+          opacity: Math.random() * 1,
+        },
+        {
+          opacity: 0,
+          duration: Math.random() * 8 + 1,
+          repeat: -1,
+          yoyo: true,
+          ease: "power1.inOut",
+        },
+      );
+    }
+  }, [opacityTrigger]);
 
   useFrame((state, delta) => {
-    if (opacityTrigger && mesh.current.scale.x > 0) {
-      mesh.current.scale.x -= 0.1;
-      mesh.current.scale.y -= 0.1;
-      mesh.current.scale.z -= 0.1;
-    }
-
     mesh.current.position.x +=
       moveProperty.directionX * moveProperty.speed * delta;
     mesh.current.position.y +=
@@ -137,21 +139,19 @@ export const BokehAnimation = ({ position }) => {
   );
 
   const colors = ["#eeaf6c", "#efc675", "#ae8456", "#ffdebd", "#ffefe0"];
-  const visualProperty = useMemo(
+  const property = useMemo(
     () => ({
       scale: Math.random(),
       color: colors[Math.floor(Math.random() * colors.length)],
       texture: bokehTextures[Math.floor(Math.random() * bokehTextures.length)],
+      directionX: Math.random() - 0.5,
+      directionY: Math.random() - 0.5,
+      directionZ: Math.random() - 0.5,
+      speed: Math.random() - 0.5,
     }),
     [],
   );
 
-  const [moveProperty, setMoveProperty] = useState({
-    directionX: Math.random() - 0.5,
-    directionY: Math.random() - 0.5,
-    directionZ: Math.random() - 0.5,
-    speed: Math.random() - 0.5,
-  });
   const [isTimeoutEnd, setIsTimeoutEnd] = useState(false);
   const mesh = useRef();
   const materialRef = useRef();
@@ -159,10 +159,12 @@ export const BokehAnimation = ({ position }) => {
   useEffect(() => {
     setTimeout(() => {
       setIsTimeoutEnd(true);
-    }, 3500);
-  });
+    }, 4000);
+  }, []);
 
   useGSAP(() => {
+    if (!isTimeoutEnd) return;
+
     gsap.fromTo(
       materialRef.current,
       {
@@ -171,35 +173,34 @@ export const BokehAnimation = ({ position }) => {
       {
         opacity: Math.random() - 0.7,
         duration: Math.random() * 4,
-        delay: 3.8,
       },
     );
 
     gsap.fromTo(
       mesh.current.scale,
       {
-        x: visualProperty.scale * 12,
-        y: visualProperty.scale * 12,
-        z: visualProperty.scale * 12,
+        x: property.scale * 12,
+        y: property.scale * 12,
+        z: property.scale * 12,
       },
       {
-        x: visualProperty.scale / 8,
-        y: visualProperty.scale / 8,
-        z: visualProperty.scale / 8,
+        x: property.scale / 9,
+        y: property.scale / 9,
+        z: property.scale / 9,
         duration: 0.6,
-        delay: 4.7,
+        delay: 0.5,
       },
     );
-    materialRef.current.color.multiplyScalar(0.5 + Math.random() * 0.5);
-  }, []);
+  }, [isTimeoutEnd]);
+
   useFrame((state, delta) => {
     if (isTimeoutEnd) {
       mesh.current.position.x +=
-        moveProperty.directionX * moveProperty.speed * delta * 50;
+        property.directionX * property.speed * delta * 100;
       mesh.current.position.y +=
-        moveProperty.directionY * moveProperty.speed * delta * 50;
+        property.directionY * property.speed * delta * 100;
       mesh.current.position.z +=
-        moveProperty.directionZ * moveProperty.speed * delta * 100;
+        property.directionZ * property.speed * delta * 100 * 2;
     }
   });
 
@@ -207,14 +208,14 @@ export const BokehAnimation = ({ position }) => {
     <mesh
       position={[position[0], position[1], position[2]]}
       rotation={[0, Math.PI, 0]}
-      scale={visualProperty.scale}
+      scale={property.scale}
       ref={mesh}
     >
       <planeGeometry args={[1, 1, 1]} />
       <meshBasicMaterial
-        color={visualProperty.color}
+        color={property.color}
         ref={materialRef}
-        map={visualProperty.texture}
+        map={property.texture}
         opacity={0}
         transparent
         depthWrite={false}

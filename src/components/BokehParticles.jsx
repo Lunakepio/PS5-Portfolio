@@ -7,8 +7,8 @@ export const BokehParticles = ({ isAbout }) => {
         <BokehSinusoide
           key={i}
           position={[
-            (i - 500) / 8,
-            Math.sin(i * 0.007) * 10 + (Math.random() - 0.5) * 10 - 5,
+            (i - 500) / 7.5,
+            Math.sin(i * 0.007) * 10 + (Math.random() - 0.5) * 10 - 4,
             Math.cos(i * 0.007) * 10 + (Math.random() - 0.5) * 80,
           ]}
           isAbout={isAbout}
@@ -17,14 +17,10 @@ export const BokehParticles = ({ isAbout }) => {
 
       {isAbout
         ? null
-        : Array.from({ length: 300 }).map((_, i) => (
+        : Array.from({ length: 200 }).map((_, i) => (
             <BokehAnimation
               key={1005 + i}
-              position={[
-                Math.random() - 0.5,
-                Math.random() - 0.5,
-                Math.random() * 10 - 95,
-              ]}
+              position={[Math.random(), Math.random(), Math.random() * 5 - 95]}
             />
           ))}
     </mesh>
