@@ -11,7 +11,7 @@ export const About = () => {
   const informationRef = useRef();
   const pageContainerRef = useRef();
 
-  const { setOpacity, setLanguage } = useAppStore();
+  const { setLanguage } = useAppStore();
 
   const defaultOptions = {
     reverse: true, // reverse the tilt direction
@@ -79,14 +79,11 @@ export const About = () => {
           right: "20px",
           zIndex: "999",
         }}
+        defaultValue={"en"}
         onChange={(e) => setLanguage(e.target.value)}
       >
-        <option selected value={"en"}>
-          🇺🇸
-        </option>
-        <option selected value={"fr"}>
-          🇫🇷
-        </option>
+        <option value={"en"}>🇺🇸</option>
+        <option value={"fr"}>🇫🇷</option>
       </select>
       <ProjectNav />
 
@@ -115,7 +112,7 @@ export const About = () => {
         </p>
       </section>
 
-      <Scene isMessageShow={false} isAbout={true} />
+      <Scene isAbout={true} />
     </main>
   );
 };

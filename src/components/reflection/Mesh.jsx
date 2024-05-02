@@ -5,7 +5,7 @@ import gsap from "gsap";
 import Reflexion from "./Reflexion";
 import { useGSAP } from "@gsap/react";
 
-export const MeshReflection = () => {
+export const MeshReflection = ({ isAbout }) => {
   const reflexionRef = useRef();
 
   useGSAP(() => {
@@ -21,7 +21,7 @@ export const MeshReflection = () => {
         y: 10,
         z: 10,
         duration: 3,
-        delay: 1,
+        delay: isAbout ? 0.5 : 5,
       },
     );
   }, []);

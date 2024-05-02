@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import { Tilt } from "react-tilt";
 import { ProjectNav } from "../components/ProjectNav";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
@@ -10,6 +9,7 @@ export const Projects = () => {
   const [index, setIndex] = useState(0);
   const [position, setPosition] = useState("projects");
   const [buttonClick, setButtonClick] = useState(false);
+  const [selectDisable, setSelectDisable] = useState(false);
 
   const pageContainerRef = useRef();
   const backgroundRef = useRef();
@@ -95,6 +95,8 @@ export const Projects = () => {
 
   useEffect(() => {
     const nextArrow = (e) => {
+      setSelectDisable(true);
+
       if (e.keyCode === 13 && position === "projects") {
         handleButtonClick();
       }
@@ -115,6 +117,10 @@ export const Projects = () => {
       }
     };
 
+    const handleKeyUp = () => {
+      setSelectDisable(false);
+    };
+
     const nextScroll = (e) => {
       if (e.deltaY < 0) {
         setIndex((prev) =>
@@ -126,12 +132,14 @@ export const Projects = () => {
     };
 
     window.addEventListener("keydown", nextArrow);
+    window.addEventListener("keyup", handleKeyUp);
     window.addEventListener("wheel", nextScroll);
 
     setOpacity(false);
 
     return () => {
       window.removeEventListener("keydown", nextArrow);
+      window.removeEventListener("keyup", handleKeyUp);
       window.removeEventListener("wheel", nextScroll);
     };
   }, []);
@@ -213,14 +221,12 @@ export const Projects = () => {
           right: "20px",
           zIndex: "999",
         }}
+        defaultValue={languageSelect}
+        disabled={selectDisable}
         onChange={(e) => setLanguage(e.target.value)}
       >
-        <option selected value={"en"}>
-          🇺🇸
-        </option>
-        <option selected value={"fr"}>
-          🇫🇷
-        </option>
+        <option value={"en"}>🇺🇸</option>
+        <option value={"fr"}>🇫🇷</option>
       </select>
       {!buttonClick && <ProjectNav setPosition={setPosition} />}
       <section

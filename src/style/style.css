@@ -49,7 +49,7 @@ body {
 
   p {
     animation: scaleUp 1s ease-in-out forwards;
-    animation-delay: 1s;
+    animation-delay: 7s;
     text-align: center;
     transform: scale(0);
     font-weight: 100;
@@ -166,7 +166,7 @@ body {
   align-items: center;
   margin: 100px;
   animation: scaleUp 1s ease-in-out forwards;
-  animation-delay: 1s;
+  animation-delay: 7s;
   transform: scale(0);
   cursor: pointer;
 }

@@ -1,18 +1,17 @@
-import { OrbitControls, Preload } from "@react-three/drei";
 import { MeshRay } from "./godrays/Mesh";
 import { MeshReflection } from "./reflection/Mesh";
-import { BokehParticles } from "./BokehParticles";
 import { Background } from "./Background";
-import { useAppStore } from "../store";
+import { BokehParticles } from "./BokehParticles";
+import { Suspense } from "react";
 
 export const Experience = () => {
   return (
-    <>
+    <Suspense fallback={null}>
       <Background />
-      <MeshRay />
-      <MeshReflection />
-      <BokehParticles isAbout={true} />
-    </>
+      <MeshRay isAbout={false} />
+      <MeshReflection isAbout={false} />
+      <BokehParticles isAbout={false} />
+    </Suspense>
   );
 };
 
@@ -20,10 +19,9 @@ export const ExperienceAbout = () => {
   return (
     <>
       <Background />
-      <MeshRay />
-      <MeshReflection />
-      <BokehParticles isAbout={false} />
-      <OrbitControls />
+      <MeshRay isAbout={true} />
+      <MeshReflection isAbout={true} />
+      <BokehParticles isAbout={true} />
     </>
   );
 };

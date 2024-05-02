@@ -5,7 +5,7 @@ import gsap from "gsap";
 import GodRay from "./GodRay";
 import { useGSAP } from "@gsap/react";
 
-export const MeshRay = () => {
+export const MeshRay = ({ isAbout }) => {
   const godRayRef = useRef();
 
   useGSAP(() => {
@@ -19,7 +19,7 @@ export const MeshRay = () => {
         x: 30,
         z: 30,
         duration: 3,
-        delay: 1,
+        delay: isAbout ? 0.5 : 5,
       },
     );
   }, []);
