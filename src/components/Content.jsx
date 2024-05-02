@@ -79,8 +79,8 @@ export const Content = () => {
             }, 1300)
           }
         >
-          <h1>Welcome Back to PlayStation</h1>
-          <p>Who{"'"}s want you choose ?</p>
+          <h1>Welcome to PlayStation</h1>
+          <p>Who do you want to choose ?</p>
 
           <article className={userClass} ref={user}>
             <span className="userController">
