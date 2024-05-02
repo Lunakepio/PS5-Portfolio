@@ -102,14 +102,7 @@ export const About = () => {
         </article>
 
         <p className="description" ref={descriptionRef}>
-          Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit
-          enim labore culpa sint ad nisi Lorem pariatur mollit ex esse
-          exercitation amet. Nisi anim cupidatat excepteur officia.
-          Reprehenderit nostrud nostrud ipsum Lorem est aliquip amet voluptate
-          voluptate dolor minim nulla est proident. Nostrud officia pariatur ut
-          officia. Sit irure elit esse ea nulla sunt ex occaecat reprehenderit
-          commodo officia dolor Lorem duis laboris cupidatat officia voluptate.
-        </p>
+        Développeur professionnel ayant une passion pour la 3D dans le Web, j&apos;écris du code depuis plus de 10 ans. Expert en JavaScript je suis également très proficient avec React.</p>
       </section>
 
       <Scene isAbout={true} />
