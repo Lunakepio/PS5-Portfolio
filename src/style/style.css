@@ -636,6 +636,25 @@ nav {
     border-radius: 10px;
     text-align: center;
   }
+
+  .links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    font-size: 2rem;
+
+    svg {
+      transition: all 0.3s ease-in-out;
+      opacity: 0.2;
+      cursor: pointer;
+
+      &:hover {
+        transform: scale(1.2);
+        opacity: 1;
+      }
+    }
+  }
 }
 
 /* Responcive */

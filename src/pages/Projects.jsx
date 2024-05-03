@@ -21,6 +21,18 @@ export const Projects = () => {
   const projectsData = [
     {
       id: 1,
+      cardImg: "/mario-bros-card.png",
+      img: "/mario-bros-game.png",
+      logo: "/logo-mario.png",
+      title: "Mario Bros.js",
+      descriptionFr:
+        "Mario Bros.JS est la reproduction du jeu Super Mario Bros réalisé par Nintendo, mais sur navigateur web grâce à WebGL",
+      descriptionEn:
+        "Mario Bros.JS is the reproduction of the Super Mario Bros game made by Nintendo on a web browser using WebGL",
+      link: "https://mario-bros-js-one.vercel.app/",
+    },
+    {
+      id: 2,
       cardImg: "/mario-kart-js.jpg",
       img: "/mario-kart-js-game.jpg",
       logo: "/logo-mario.png",
@@ -32,7 +44,7 @@ export const Projects = () => {
       link: "https://github.com/Lunakepio/Mario-Kart-3.js/tree/main",
     },
     {
-      id: 2,
+      id: 3,
       cardImg: "/star_wars_card.png",
       img: "/starwars.jpg",
       logo: "/star_wars_logo.png",
@@ -44,7 +56,7 @@ export const Projects = () => {
       link: "https://death-star-trench-run.vercel.app/",
     },
     {
-      id: 3,
+      id: 4,
       cardImg: "/card-flightSim.webp",
       img: "/background-filghtSim.webp",
       logo: "/f4u.webp",
@@ -56,7 +68,7 @@ export const Projects = () => {
       link: "https://flightsimu.vercel.app/",
     },
     {
-      id: 4,
+      id: 5,
       cardImg: "/unnamed.png",
       img: "/porsche.jpg",
       logo: "/porsche-logo.png",
@@ -68,7 +80,7 @@ export const Projects = () => {
       link: "https://3d-test-beta.vercel.app/",
     },
     {
-      id: 5,
+      id: 6,
       cardImg: "/starfox-app.png",
       img: "/starfox.jpg",
       logo: "/StarFox_logo.png",
@@ -80,7 +92,7 @@ export const Projects = () => {
       link: "https://3d-test-beta.vercel.app/",
     },
     {
-      id: 6,
+      id: 7,
       cardImg: "/vision.jpg",
       img: "/vision.png",
       logo: "/Apple-Logo.png",

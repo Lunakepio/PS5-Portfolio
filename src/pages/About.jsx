@@ -5,13 +5,23 @@ import { useAppStore } from "../store";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { Scene } from "../components/Scene";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLinkedin, faTwitter } from "@fortawesome/free-brands-svg-icons";
+import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
 
 export const About = () => {
   const descriptionRef = useRef();
   const informationRef = useRef();
   const pageContainerRef = useRef();
 
-  const { setLanguage } = useAppStore();
+  const { setLanguage, languageSelect } = useAppStore();
+
+  const aboutData = {
+    textEn:
+      "A professional developer with a passion for 3D in the web, I've been writing code for over 10 years. I'm an expert in JavaScript, and I'm also very proficient with React.",
+    textFr:
+      "Développeur professionnel ayant une passion pour la 3D dans le Web, j'écris du code depuis plus de 10 ans. Expert en JavaScript je suis également très proficient avec React.",
+  };
 
   const defaultOptions = {
     reverse: true, // reverse the tilt direction
@@ -79,7 +89,7 @@ export const About = () => {
           right: "20px",
           zIndex: "999",
         }}
-        defaultValue={"en"}
+        defaultValue={languageSelect}
         onChange={(e) => setLanguage(e.target.value)}
       >
         <option value={"en"}>🇺🇸</option>
@@ -102,7 +112,20 @@ export const About = () => {
         </article>
 
         <p className="description" ref={descriptionRef}>
-        Développeur professionnel ayant une passion pour la 3D dans le Web, j&apos;écris du code depuis plus de 10 ans. Expert en JavaScript je suis également très proficient avec React.</p>
+          {languageSelect === "fr" ? aboutData.textFr : aboutData.textEn}
+        </p>
+
+        <section className="links">
+          <a href="https://twitter.com/Lunakepio">
+            <FontAwesomeIcon icon={faTwitter} />
+          </a>
+          <a href="https://www.linkedin.com/in/alex-moulinneuf-3a77b61b6/">
+            <FontAwesomeIcon icon={faLinkedin} />
+          </a>
+          <a href="mailto:moulinneufalex@gmail.com">
+            <FontAwesomeIcon icon={faEnvelope} />
+          </a>
+        </section>
       </section>
 
       <Scene isAbout={true} />
