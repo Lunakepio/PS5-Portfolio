@@ -465,12 +465,16 @@ nav {
 
         .glowProject {
           position: absolute;
-          width: 150%;
-          height: 150%;
-          animation: borderMove 5s linear infinite;
-          offset-path: rect(0% auto 100% auto);
-          background: radial-gradient(rgba(255, 255, 255, 0.6), transparent);
+          width: 200%;
+          height: 800%;
+          background-image: conic-gradient(
+            rgba(255, 255, 255, 0),
+            rgba(255, 255, 255, 0.6)
+          );
+          animation: borderMoveButton 5s linear infinite;
           opacity: 0;
+          pointer-events: none;
+          border-radius: 50px;
         }
       }
 
