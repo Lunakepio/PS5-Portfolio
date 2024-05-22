@@ -78,11 +78,12 @@ export function BokehAnimation(instance) {
   useEffect(() => {
     setTimeout(() => {
       setIsTimeoutEnd(true);
-    }, 4000);
+    }, 4500);
   }, []);
 
   useEffect(() => {
     if (ref.current) {
+      ref.current.scale.set(12, 12, 12);
       ref.current.rotation.set(Math.PI, 0, 0);
       ref.current.position.set(
         visualProperty.position[0],
@@ -94,34 +95,24 @@ export function BokehAnimation(instance) {
   }, [ref.current]);
 
   useGSAP(() => {
-    if (!isTimeoutEnd) return;
-
-    gsap.fromTo(
-      ref.current.scale,
-      {
-        x: visualProperty.scale * 12,
-        y: visualProperty.scale * 12,
-        z: visualProperty.scale * 12,
-      },
-      {
-        x: visualProperty.scale / 5,
-        y: visualProperty.scale / 5,
-        z: visualProperty.scale / 5,
-        duration: 0.5,
-        delay: 0.7,
-        ease: "circ.inOut",
-      },
-    );
+    gsap.to(ref.current.scale, {
+      x: visualProperty.scale / 5,
+      y: visualProperty.scale / 5,
+      z: visualProperty.scale / 5,
+      delay: 0.8,
+      duration: 0.3,
+      ease: "circ.inOut",
+    });
   }, [isTimeoutEnd]);
 
   useFrame((state, delta) => {
     if (isTimeoutEnd) {
       ref.current.position.x +=
-        visualProperty.directionX * visualProperty.speed * delta * 100;
+        visualProperty.directionX * visualProperty.speed * delta * 150;
       ref.current.position.y +=
-        visualProperty.directionY * visualProperty.speed * delta * 100;
+        visualProperty.directionY * visualProperty.speed * delta * 150;
       ref.current.position.z +=
-        visualProperty.directionZ * visualProperty.speed * delta * 100;
+        visualProperty.directionZ * visualProperty.speed * delta * 150;
     }
   });
 

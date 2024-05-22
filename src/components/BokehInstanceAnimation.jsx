@@ -23,7 +23,7 @@ export const BokehInstanceAnimation = ({ positions, isAbout }) => {
   const [animationEnd, setAnimationEnd] = useState(false);
 
   useEffect(() => {
-    const timeout = setTimeout(() => setAnimationEnd(true), 10000);
+    const timeout = setTimeout(() => setAnimationEnd(true), 15000);
 
     return () => {
       clearTimeout(timeout);
@@ -51,15 +51,9 @@ export const BokehInstanceAnimation = ({ positions, isAbout }) => {
 
   useGSAP(() => {
     gsap.to(material1.current, {
-      opacity: 1,
-      duration: Math.random() * 4,
-      delay: 4.0,
-    });
-
-    gsap.to(material1.current, {
-      opacity: 0,
-      delay: 9,
-      duration: 0.5,
+      opacity: 0.9,
+      duration: Math.random() * 4 + 2,
+      delay: 4.5,
     });
   }, []);
 
@@ -72,7 +66,7 @@ export const BokehInstanceAnimation = ({ positions, isAbout }) => {
             <meshBasicMaterial
               color={"white"}
               ref={material1}
-              map={bokehTexture[1]}
+              map={bokehTexture[3]}
               opacity={0}
               transparent
               depthWrite={false}
