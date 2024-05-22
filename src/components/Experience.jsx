@@ -3,6 +3,7 @@ import { MeshReflection } from "./reflection/Mesh";
 import { Background } from "./Background";
 import { BokehParticles } from "./BokehParticles";
 import { Suspense } from "react";
+import { OrbitControls } from "@react-three/drei";
 
 export const Experience = () => {
   return (
