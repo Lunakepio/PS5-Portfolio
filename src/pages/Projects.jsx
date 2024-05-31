@@ -95,7 +95,7 @@ export const Projects = () => {
         y: 0,
         z: 0,
       },
-      mesh: "/mesh/mario_obj.glb",
+      mesh: "XWing",
       scale: {
         desktop: 1,
         mobile: 1,
@@ -115,16 +115,16 @@ export const Projects = () => {
       position: {
         x: 0,
         y: 0,
-        z: 0,
+        z: -30,
       },
       rotation: {
         x: 0,
         y: 0,
         z: 0,
       },
-      mesh: "/mesh/mario_obj.glb",
+      mesh: "F4",
       scale: {
-        desktop: 1,
+        desktop: 2,
         mobile: 1,
       },
     },
@@ -141,17 +141,17 @@ export const Projects = () => {
       link: "https://3d-test-beta.vercel.app/",
       position: {
         x: 0,
-        y: 0,
-        z: 0,
+        y: 0.5,
+        z: -8,
       },
       rotation: {
         x: 0,
         y: 0,
         z: 0,
       },
-      mesh: "/mesh/mario_obj.glb",
+      mesh: "Porche",
       scale: {
-        desktop: 1,
+        desktop: 1.8,
         mobile: 1,
       },
     },
@@ -169,16 +169,16 @@ export const Projects = () => {
       position: {
         x: 0,
         y: 0,
-        z: 0,
+        z: -35,
       },
       rotation: {
         x: 0,
         y: 0,
         z: 0,
       },
-      mesh: "/mesh/mario_obj.glb",
+      mesh: "Arwinghigh",
       scale: {
-        desktop: 1,
+        desktop: 1.5,
         mobile: 1,
       },
     },

@@ -8,6 +8,10 @@ import { MarioBros } from "./Mario_Bros";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { MarioKart } from "./Mariokart";
+import { F4 } from "./F4";
+import { Porche } from "./Porche";
+import { Arwinghigh } from "./Arwinghigh";
+import { Ship } from "./Star_wars_x-wing";
 
 export const Experience = () => {
   return (
@@ -88,6 +92,18 @@ function returnProjectMesh(mesh) {
 
     case "MarioKart":
       return <MarioKart />;
+
+    case "F4":
+      return <F4 />;
+
+    case "Porche":
+      return <Porche />;
+
+    case "Arwinghigh":
+      return <Arwinghigh />;
+
+    case "XWing":
+      return <Ship />;
 
     default:
       break;
