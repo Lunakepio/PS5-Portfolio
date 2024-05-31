@@ -4,6 +4,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ProjectsList } from "../components/ProjectsList";
 import { useAppStore } from "../store";
+import { Project3D } from "../components/Project3D.jsx";
 
 export const Projects = () => {
   const [index, setIndex] = useState(0);
@@ -30,6 +31,21 @@ export const Projects = () => {
       descriptionEn:
         "Mario Bros.JS is the reproduction of the Super Mario Bros game made by Nintendo on a web browser using WebGL",
       link: "https://mario-bros-js-one.vercel.app/",
+      position: {
+        x: 0,
+        y: 1,
+        z: 0,
+      },
+      rotation: {
+        x: 0,
+        y: 0,
+        z: 0,
+      },
+      mesh: "Mario",
+      scale: {
+        desktop: 2,
+        mobile: 1.5,
+      },
     },
     {
       id: 2,
@@ -42,6 +58,21 @@ export const Projects = () => {
       descriptionEn:
         "Mario Kart 3.JS is the reproduction of the Mario Kart game made by Nintendo on a web browser using WebGL",
       link: "https://github.com/Lunakepio/Mario-Kart-3.js/tree/main",
+      position: {
+        x: 0,
+        y: 1,
+        z: 0,
+      },
+      rotation: {
+        x: 0,
+        y: 0,
+        z: 0,
+      },
+      mesh: "MarioKart",
+      scale: {
+        desktop: 1.5,
+        mobile: 1.3,
+      },
     },
     {
       id: 3,
@@ -54,6 +85,21 @@ export const Projects = () => {
       descriptionEn:
         "In a distant galaxy, I recreated the iconic scene from Star Wars where Luke Skywalker destroys the Death Star. I used Three.js for the 3D, GSAP for animation, and the Web Audio API for sound effects. The project is Open Source and available on my Github.",
       link: "https://death-star-trench-run.vercel.app/",
+      position: {
+        x: 0,
+        y: 0,
+        z: 0,
+      },
+      rotation: {
+        x: 0,
+        y: 0,
+        z: 0,
+      },
+      mesh: "/mesh/mario_obj.glb",
+      scale: {
+        desktop: 1,
+        mobile: 1,
+      },
     },
     {
       id: 4,
@@ -66,6 +112,21 @@ export const Projects = () => {
       descriptionEn:
         "Experience the thrill of flying without ever leaving your seat with this immersive 3D flight simulator, powered by Three.js. Crafted in 3D and utilizing the innovative Google 3D tiles API, it delivers an incredibly detailed and highly accurate representation of an urban environment.",
       link: "https://flightsimu.vercel.app/",
+      position: {
+        x: 0,
+        y: 0,
+        z: 0,
+      },
+      rotation: {
+        x: 0,
+        y: 0,
+        z: 0,
+      },
+      mesh: "/mesh/mario_obj.glb",
+      scale: {
+        desktop: 1,
+        mobile: 1,
+      },
     },
     {
       id: 5,
@@ -78,6 +139,21 @@ export const Projects = () => {
       descriptionEn:
         "This project blends coding, animation, and cinema to create a 3D scene that reacts to user scrolling, all crafted with pure code. It seamlessly harmonizes technology with artistic coding to deliver a distinctive cinematic aesthetic.",
       link: "https://3d-test-beta.vercel.app/",
+      position: {
+        x: 0,
+        y: 0,
+        z: 0,
+      },
+      rotation: {
+        x: 0,
+        y: 0,
+        z: 0,
+      },
+      mesh: "/mesh/mario_obj.glb",
+      scale: {
+        desktop: 1,
+        mobile: 1,
+      },
     },
     {
       id: 6,
@@ -90,6 +166,21 @@ export const Projects = () => {
       descriptionEn:
         "Trying to bring the classic Nintendo 64 title to the web, relive the start of the original Corneria level with your mouse and keyboard. Get inside your Arwing and take down the evil Monkey King's army. Let's rock and roll !",
       link: "https://3d-test-beta.vercel.app/",
+      position: {
+        x: 0,
+        y: 0,
+        z: 0,
+      },
+      rotation: {
+        x: 0,
+        y: 0,
+        z: 0,
+      },
+      mesh: "/mesh/mario_obj.glb",
+      scale: {
+        desktop: 1,
+        mobile: 1,
+      },
     },
     {
       id: 7,
@@ -102,6 +193,21 @@ export const Projects = () => {
       descriptionEn:
         "I fell in love with the new Apple Vision Pro concept and decided to recreate it: a spatial user interface in a 3D apartment. You can interact with the UI and check it from different angles by literally looking around with your head! ",
       link: "https://vision-omega-two.vercel.app/",
+      position: {
+        x: 0,
+        y: 0,
+        z: 0,
+      },
+      rotation: {
+        x: 0,
+        y: 0,
+        z: 0,
+      },
+      mesh: "/mesh/mario_obj.glb",
+      scale: {
+        desktop: 1,
+        mobile: 1,
+      },
     },
   ];
 
@@ -221,6 +327,14 @@ export const Projects = () => {
 
   return (
     <main>
+      <section className="project3DContainer">
+        <Project3D
+          mesh={projectsData[index].mesh}
+          position={projectsData[index].position}
+          rotation={projectsData[index].rotation}
+          scale={projectsData[index].scale}
+        />
+      </section>
       <select
         style={{
           padding: "10px",
