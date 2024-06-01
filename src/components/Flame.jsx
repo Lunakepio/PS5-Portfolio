@@ -1,5 +1,6 @@
 import { useRef } from "react";
-import { GodRays } from "@react-three/postprocessing";
+import GodRay from "../shader/Godray";
+
 
 export const Flame = ({ position }) => {
   const ref = useRef();
@@ -13,7 +14,7 @@ export const Flame = ({ position }) => {
           rotation={[0, 0, 0]}
           scale={[1, 1, 1]}
         />
-        <GodRays />
+        <GodRay />
         <pointLight color="#d260fe" intensity={2} position={[0, 0, 0]} />
       </mesh>
     </group>

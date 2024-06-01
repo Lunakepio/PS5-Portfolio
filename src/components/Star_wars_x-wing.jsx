@@ -44,7 +44,7 @@ export function Ship({ wingsOpen = true, ...props }) {
   }, [wingsOpen]);
 
   return (
-    <group ref={group} {...props} dispose={null}>
+    <group ref={group} {...props} scale={0.5} dispose={null}>
       <group name="Sketchfab_Scene">
         <group name="X-Wing" rotation={[-Math.PI / 2, 0, 0]} scale={8.333}>
           <group name="WingRotation" position={[0, -1.405, -0.012]} />

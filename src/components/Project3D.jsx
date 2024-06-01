@@ -1,6 +1,7 @@
 import { Canvas, useLoader } from "@react-three/fiber";
 import { useEffect, useRef, useState } from "react";
 import { ExperienceProject } from "./Experience";
+import { Environment } from "@react-three/drei";
 
 export const Project3D = ({ position, mesh, rotation, scale }) => {
   const [currentPosition, setCurrentPosition] = useState({
@@ -25,7 +26,8 @@ export const Project3D = ({ position, mesh, rotation, scale }) => {
         fov: 30,
       }}
     >
-      <ambientLight intensity={4} />
+    <Environment preset="city"/>
+      <ambientLight intensity={1}/>
       <ExperienceProject
         scale={scale}
         position={currentPosition}
