@@ -325,6 +325,15 @@ nav {
   }
 }
 
+.project3DContainer {
+  position: absolute;
+  width: 50vw;
+  bottom: 1vh;
+  right: 0;
+  height: 75vh;
+  z-index: 999;
+}
+
 .pageContainer {
   display: flex;
   transition: all 0.3s;
