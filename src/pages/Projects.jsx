@@ -44,7 +44,7 @@ export const Projects = () => {
       mesh: "Mario",
       scale: {
         desktop: 2,
-        mobile: 1.5,
+        mobile: 2,
       },
     },
     {
@@ -71,7 +71,7 @@ export const Projects = () => {
       mesh: "MarioKart",
       scale: {
         desktop: 1.5,
-        mobile: 1.3,
+        mobile: 2,
       },
     },
     {
@@ -125,7 +125,7 @@ export const Projects = () => {
       mesh: "F4",
       scale: {
         desktop: 2,
-        mobile: 1,
+        mobile: 1.5,
       },
     },
     {
@@ -152,7 +152,7 @@ export const Projects = () => {
       mesh: "Porche",
       scale: {
         desktop: 1.8,
-        mobile: 1,
+        mobile: 2,
       },
     },
     {
@@ -179,7 +179,7 @@ export const Projects = () => {
       mesh: "Arwinghigh",
       scale: {
         desktop: 1.5,
-        mobile: 1,
+        mobile: 2,
       },
     },
     {

@@ -334,6 +334,16 @@ nav {
   z-index: 999;
 }
 
+@media only screen and (max-width: 600px) {
+  .project3DContainer {
+    width: 90vw;
+    height: 30vh;
+    top: 45%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+  }
+}
+
 .pageContainer {
   display: flex;
   transition: all 0.3s;
