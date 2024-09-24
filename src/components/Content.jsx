@@ -80,7 +80,7 @@ export const Content = () => {
           }
         >
           <h1>Welcome to PlayStation</h1>
-          <p>Who do you want to choose ?</p>
+          <p>Who&apos;s developer is it ?</p>
 
           <article className={userClass} ref={user}>
             <span className="userController">

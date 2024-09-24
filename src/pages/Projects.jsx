@@ -397,7 +397,7 @@ export const Projects = () => {
                 onClick={handleButtonClick}
                 className={`visit ${buttonClick ? "visitActive" : ""}`}
               >
-                Visit
+                {languageSelect === "fr" ? "Visiter" : "Visit"}
               </button>
             </div>
           </section>
